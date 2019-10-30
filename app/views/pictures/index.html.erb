@@ -1,16 +1,21 @@
 <div class="container-fluid">
   <table class="table table-striped">
     <tr>
-      <th>投稿一覧</th>
       <th>user</th>
+      <th>タイトル</th>
       <th>picture</th>
+      <th>投稿</th>
+      <th>更新日時</th>
     </tr>
 
     <% @pictures.each do |picture| %>
       <tr>
-        <td><%= picture.content %></td>
+
         <td><%= picture.user.name %></td>
+        <td><%= picture.title %></td>
         <td><%= image_tag picture.image.url %></td>
+        <td><%= picture.content %></td>
+        <td><%= picture.updated_at %></td>
 
         <td><%= link_to '詳細を確認する', picture_path(picture.id), class: 'btn btn-default'%></td>
         <td><%= link_to "ブログを編集する", edit_picture_path(picture.id), class: 'btn btn-default' %></td>
