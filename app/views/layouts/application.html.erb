@@ -60,6 +60,8 @@
                 <li><%= link_to "Sign up", new_user_path %></li>
                 <li><%= link_to "Login", new_session_path %></li>
               <% end %>
+              <li><%= link_to "INDEX", pictures_path %></li>
+              <li><%= link_to "NEW", new_picture_path %></li>
 
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -83,45 +85,17 @@
 
 <!-- content -->
               <div class="row">
+                <% flash.each do |name, msg| %>
+                  <div class="alert alert-<%= name %>">
+                    <%= msg.html_safe %>
+                  </div>
+                <% end %>  
 
+<%= yield %>
 <!-- main col left -->
-<div class="col-sm-5">
-                    <%= yield %>
-</div>
-
 <!-- main col right -->
-                <div class="col-sm-7">
+<!-- main col right -->
 
-                   <div class="panel panel-default">
-                   <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Bootply Editor &amp; Code Library</h4></div>
-                    <div class="panel-body">
-                    <p><img src="assets/img/150x150.gif" class="img-circle pull-right"> <a href="#">The Bootstrap Playground</a></p>
-                    <div class="clearfix"></div>
-                    <hr>
-                    Design, build, test, and prototype
-                    </div>
-                   </div>
-                   <div class="panel panel-default">
-                   <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Bootply Editor &amp; Code Library</h4></div>
-                    <div class="panel-body">
-                    <p><img src="assets/img/150x150.gif" class="img-circle pull-right"> <a href="#">The Bootstrap Playground</a></p>
-                    <div class="clearfix"></div>
-                    <hr>
-                    Design, build, test, and prototype
-                    </div>
-                   </div>
-                   <div class="panel panel-default">
-                   <div class="panel-heading"><a href="#" class="pull-right">View all</a> <h4>Bootply Editor &amp; Code Library</h4></div>
-                    <div class="panel-body">
-                    <p><img src="assets/img/150x150.gif" class="img-circle pull-right"> <a href="#">The Bootstrap Playground</a></p>
-                    <div class="clearfix"></div>
-                    <hr>
-                    Design, build, test, and prototype
-                    </div>
-                   </div>
-
-
-                </div>
                </div><!--/row-->
 
 

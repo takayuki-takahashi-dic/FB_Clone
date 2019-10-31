@@ -12,12 +12,8 @@
   <% end %>
 
   <div class="picture_content">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-  <div class="picture_content">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
+    <%= form.label :content ,for: 'formGroupExampleInput'  %>
+    <%= form.text_field :content ,class: 'form-control'  %>
   </div>
   <div class="field">
     <%= form.label :image %>
@@ -27,6 +23,8 @@
     <%= form.file_field :image %>
     <%= form.hidden_field :image_cache %>
   </div>
-  <%= form.submit %>
+  <br>
+  <%= form.submit "新規作成"  ,class: 'btn btn-primary mb-2'  %>
 <% end %>
-<%= link_to 'ブログ一覧画面にもどる', pictures_path %>
+<br>
+<%= link_to 'ブログ一覧画面にもどる', pictures_path , class: 'btn btn-default'%>

@@ -12,17 +12,17 @@
 <% end %>
 
 <%= form_with(model: @user, local: true) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.label :name ,for: 'formGroupExampleInput' %>
+  <%= f.text_field :name ,class: 'form-control'  %>
 
-  <%= f.label :email %>
-  <%= f.email_field :email %>
+  <%= f.label :email ,for: 'formGroupExampleInput' %>
+  <%= f.email_field :email ,class: 'form-control'  %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+  <%= f.label :password ,for: 'formGroupExampleInput' %>
+  <%= f.password_field :password ,class: 'form-control'  %>
 
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-
-  <%= f.submit "Create my account" %>
+  <%= f.label :password_confirmation ,for: 'formGroupExampleInput' %>
+  <%= f.password_field :password_confirmation ,class: 'form-control'  %>
+<br>
+  <%= f.submit "Create my account" ,class: 'btn btn-primary mb-2'  %>
 <% end %>
