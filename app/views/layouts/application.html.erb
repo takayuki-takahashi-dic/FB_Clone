@@ -5,165 +5,208 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="assets/stylesheets/facebook.css" rel="stylesheet">
   </head>
 
   <body>
 
-      <div class="wrapper">
-    <div class="box">
-      <div class="row row-offcanvas row-offcanvas-left">
+    <div class="wrapper">
+      <div class="box">
+        <div class="row row-offcanvas row-offcanvas-left">
 
-<!-- sidebar -->
-        <div class="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
+          <!-- sidebar -->
+          <div class="column col-sm-2 col-xs-1 sidebar-offcanvas" id="sidebar">
 
-          <ul class="nav">
-            <li><a href="#" data-toggle="offcanvas" class="visible-xs text-center"><i class="glyphicon glyphicon-chevron-right"></i></a></li>
-          </ul>
-
-          <ul class="nav hidden-xs" id="lg-menu">
-            <li class="active"><a href="#featured"><i class="glyphicon glyphicon-list-alt"></i> Featured</a></li>
-            <li><a href="#stories"><i class="glyphicon glyphicon-list"></i> Stories</a></li>
-            <li><a href="#"><i class="glyphicon glyphicon-paperclip"></i> Saved</a></li>
-            <li><a href="#"><i class="glyphicon glyphicon-refresh"></i> Refresh</a></li>
-          </ul>
-<!-- tiny only nav-->
-        </div>
-<!-- /sidebar -->
-
-<!-- main right col -->
-        <div class="column col-sm-10 col-xs-11" id="main">
-
-<!-- top nav -->
-          <div class="navbar navbar-blue navbar-static-top">
-            <div class="navbar-header">
-              <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
-              <span class="sr-only">Toggle</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              </button>
-              <a href="http://usebootstrap.com/theme/facebook" class="navbar-brand logo">b</a>
-            </div>
-            <nav class="collapse navbar-collapse" role="navigation">
-            <form class="navbar-form navbar-left">
-
-            </form>
-
-            <ul class="nav navbar-nav">
-              <% if logged_in? %>
-                <li><%= link_to "Profile", user_path(current_user.id) %></li>
-                <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
-              <% else %>
-                <li><%= link_to "Sign up", new_user_path %></li>
-                <li><%= link_to "Login", new_session_path %></li>
-              <% end %>
-              <li><%= link_to "INDEX", pictures_path %></li>
-              <li><%= link_to "NEW", new_picture_path %></li>
-
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-user"></i></a>
-              <ul class="dropdown-menu">
-                <li><a href="">More</a></li>
-                <li><a href="">More</a></li>
-                <li><a href="">More</a></li>
-                <li><a href="">More</a></li>
-                <li><a href="">More</a></li>
-              </ul>
+            <ul class="nav">
+              <li>
+                <a href="#" data-toggle="offcanvas" class="visible-xs text-center">
+                  <i class="glyphicon glyphicon-chevron-right"></i>
+                </a>
               </li>
             </ul>
-            </nav>
+
+            <ul class="nav hidden-xs" id="lg-menu">
+              <li class="active">
+                <a href="#featured">
+                  <i class="glyphicon glyphicon-list-alt"></i>
+                  Featured</a>
+              </li>
+              <li>
+                <a href="#stories">
+                  <i class="glyphicon glyphicon-list"></i>
+                  Stories</a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="glyphicon glyphicon-paperclip"></i>
+                  Saved</a>
+              </li>
+              <li>
+                <a href="#">
+                  <i class="glyphicon glyphicon-refresh"></i>
+                  Refresh</a>
+              </li>
+            </ul>
+            <!-- tiny only nav-->
           </div>
-<!-- /top nav -->
+          <!-- /sidebar -->
 
-          <div class="padding">
-            <div class="full col-sm-9">
+          <!-- main right col -->
+          <div class="column col-sm-10 col-xs-11" id="main">
 
-<!-- content -->
-              <div class="row">
-                <% flash.each do |name, msg| %>
-                  <div class="alert alert-<%= name %>">
-                    <%= msg.html_safe %>
-                  </div>
-                <% end %>  
+            <!-- top nav -->
+            <div class="navbar navbar-blue navbar-static-top">
+              <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span class="sr-only">Toggle</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a href="http://usebootstrap.com/theme/facebook" class="navbar-brand logo">b</a>
+              </div>
+              <nav class="collapse navbar-collapse" role="navigation">
+                <form class="navbar-form navbar-left"></form>
 
-<%= yield %>
-<!-- main col left -->
-<!-- main col right -->
-<!-- main col right -->
+                <ul class="nav navbar-nav">
+                  <% if logged_in? %>
+                    <li><%= link_to "Profile", user_path(current_user.id) %></li>
+                    <li><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
+                  <% else %>
+                    <li><%= link_to "Sign up", new_user_path %></li>
+                    <li><%= link_to "Login", new_session_path %></li>
+                  <% end %>
+                  <li><%= link_to "INDEX", pictures_path %></li>
+                  <li><%= link_to "NEW", new_picture_path %></li>
 
-               </div><!--/row-->
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <i class="glyphicon glyphicon-user"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a href="">More</a>
+                      </li>
+                      <li>
+                        <a href="">More</a>
+                      </li>
+                      <li>
+                        <a href="">More</a>
+                      </li>
+                      <li>
+                        <a href="">More</a>
+                      </li>
+                      <li>
+                        <a href="">More</a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <!-- /top nav -->
 
+            <div class="padding">
+              <div class="full col-sm-9">
 
+                <!-- content -->
+                <div class="row">
+                  <% flash.each do |name, msg| %>
+                    <div class="alert alert-<%= name %>">
+                      <%= msg.html_safe %>
+                    </div>
+                  <% end %>
 
-              <div class="row" id="footer">
-                <div class="col-sm-6">
+                  <%= yield %>
+                  <!-- main col left -->
+                  <!-- main col right -->
+                  <!-- main col right -->
+
+                </div>
+                <!--/row-->
+
+                <div class="row" id="footer">
+                  <div class="col-sm-6"></div>
 
                 </div>
 
+                <hr>
+
+                <h4 class="text-center">
+                  1908期 髙橋孝幸
+                </h4>
+
+                <hr>
+
               </div>
+              <!-- /col-9 -->
+            </div>
+            <!-- /padding -->
+          </div>
+          <!-- /main -->
 
-              <hr>
-
-              <h4 class="text-center">
-              1908期 髙橋孝幸
-              </h4>
-
-              <hr>
-
-
-            </div><!-- /col-9 -->
-          </div><!-- /padding -->
-        </div>
-<!-- /main -->
-
-      </div>
-    </div>
-  </div>
-
-
-  <!--post modal-->
-  <div id="postModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">�</button>
-        Update Status
-      </div>
-      <div class="modal-body">
-        <form class="form center-block">
-        <div class="form-group">
-          <textarea class="form-control input-lg" autofocus="" placeholder="What do you want to share?"></textarea>
-        </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <div>
-        <button class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true">Post</button>
-        <ul class="pull-left list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
         </div>
       </div>
     </div>
-    </div>
-  </div>
 
-      <script type="text/javascript" src="assets/js/jquery.js"></script>
-      <script type="text/javascript" src="assets/js/bootstrap.js"></script>
-      <script type="text/javascript">
-      $(document).ready(function() {
-    $('[data-toggle=offcanvas]').click(function() {
-      $(this).toggleClass('visible-xs text-center');
-      $(this).find('i').toggleClass('glyphicon-chevron-right glyphicon-chevron-left');
-      $('.row-offcanvas').toggleClass('active');
-      $('#lg-menu').toggleClass('hidden-xs').toggleClass('visible-xs');
-      $('#xs-menu').toggleClass('visible-xs').toggleClass('hidden-xs');
-      $('#btnShow').toggle();
-    });
+    <!--post modal-->
+    <div id="postModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">�</button>
+            Update Status
+          </div>
+          <div class="modal-body">
+            <form class="form center-block">
+              <div class="form-group">
+                <textarea class="form-control input-lg" autofocus="" placeholder="What do you want to share?"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <div>
+              <button class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true">Post</button>
+              <ul class="pull-left list-inline">
+                <li>
+                  <a href="">
+                    <i class="glyphicon glyphicon-upload"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="">
+                    <i class="glyphicon glyphicon-camera"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="">
+                    <i class="glyphicon glyphicon-map-marker"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="assets/js/jquery.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('[data-toggle=offcanvas]').click(function () {
+          $(this).toggleClass('visible-xs text-center');
+          $(this).find('i').toggleClass('glyphicon-chevron-right glyphicon-chevron-left');
+          $('.row-offcanvas').toggleClass('active');
+          $('#lg-menu').toggleClass('hidden-xs').toggleClass('visible-xs');
+          $('#xs-menu').toggleClass('visible-xs').toggleClass('hidden-xs');
+          $('#btnShow').toggle();
+        });
       });
-      </script>
-</body>
+    </script>
+  </body>
 </html>
