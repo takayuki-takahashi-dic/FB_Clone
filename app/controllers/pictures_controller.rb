@@ -1,4 +1,5 @@
 class PicturesController < ApplicationController
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
   before_action :set_picture, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -13,7 +14,7 @@ class PicturesController < ApplicationController
     @picture = Picture.new(picture_params)
     if @picture.save
       # 一覧画面へ遷移して"ブログを作成しました！"とメッセージを表示します。
-      redirect_to pictures_path, success: "ブログを作成しました！"
+      redirect_to pictures_path, success: "作成しました！"
     else
       # 入力フォームを再描画します。
       render :new
@@ -28,7 +29,7 @@ class PicturesController < ApplicationController
 
   def update
     if @picture.update(picture_params)
-      redirect_to pictures_path, success: "ブログを編集しました！"
+      redirect_to pictures_path, success: "編集しました！"
     else
       render :edit
     end
@@ -40,7 +41,7 @@ class PicturesController < ApplicationController
       render :new
     else
       if @picture.save
-        redirect_to pictures_path, success: "ブログを作成しました！"
+        redirect_to pictures_path, success: "作成しました！"
       else
         render :new
       end
@@ -49,7 +50,7 @@ class PicturesController < ApplicationController
 
   def destroy
     @picture.destroy
-    redirect_to pictures_path, danger:"ブログを削除しました！"
+    redirect_to pictures_path, danger:"削除しました！"
   end
 
   def confirm
@@ -65,6 +66,13 @@ class PicturesController < ApplicationController
 
   def set_picture
     @picture = Picture.find(params[:id])
+  end
+
+  def ensure_correct_user
+    @picture = Picture.find_by(id:params[:id])
+    if @picture.user_id != current_user.id
+      redirect_to pictures_path, danger:"権限がありません"
+    end
   end
 
   end

@@ -11,6 +11,12 @@
   </div>
 <% end %>
 
+      <% flash.each do |name, msg| %>
+        <div class="alert alert-<%= name %>">
+          <%= msg.html_safe %>
+        </div>
+      <% end %>
+
 <div class="picture_content">
   <%= form.label :content ,for: 'formGroupExampleInput' %>
   <%= form.text_field :content ,class: 'form-control' %>
