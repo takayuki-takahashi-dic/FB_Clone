@@ -11,8 +11,8 @@
         <p>content:<%= picture.content %></p>
         <p>date:<%= picture.updated_at %></p>
         <p><%= link_to '詳細を確認する', picture_path(picture.id), class: 'btn btn-default'%></p>
-        <p><%= link_to "ブログを編集する", edit_picture_path(picture.id), class: 'btn btn-default' %></p>
-        <p><%= link_to 'ブログを削除する', picture_path(picture.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }, class: 'btn btn-default' %></p>
+        <p><%= link_to "編集する", edit_picture_path(picture.id), class: 'btn btn-default' %></p>
+        <p><%= link_to '削除する', picture_path(picture.id), method: :delete ,data: { confirm: '本当に削除していいですか？' }, class: 'btn btn-default' %></p>
       </div>
     </div>
     <div class="clearfix"></div>
